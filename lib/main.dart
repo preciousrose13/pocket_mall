@@ -1,12 +1,15 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:practiceapp/view/login.dart';
-import 'package:practiceapp/view/register.dart';
 import 'package:practiceapp/view/splash_screen.dart';
+import 'firebase_options.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main(List<String> args) async {   WidgetsFlutterBinding.ensureInitialized();   
+await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+);
+
+runApp(MyApp()); }
 
 class MyApp extends StatelessWidget {
   @override
@@ -22,3 +25,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
+
+
